@@ -8,6 +8,11 @@ jobs:
     permissions:
       contents: write
       packages: write
+    defaults:
+      run: 
+       working-directory: ./
+    env:
+     TF_WORKSPACE: main
 
     steps:
       - uses: actions/checkout@v2
