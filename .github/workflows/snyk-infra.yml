@@ -8,13 +8,10 @@ jobs:
     env:
      GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
      TF_WORKSPACE: main
-    permissions: write-all
-    defaults:
-      run: 
-       working-directory: ./
-
-    
-
+    permissions: 
+     security-events: write
+     actions: read
+     contents: read
     steps:
       - uses: actions/checkout@v2
       
@@ -32,4 +29,5 @@ jobs:
         if: always()
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: snyk.sarif
+          sarif_file: result.sarif
+          category: my-analysis-tool
