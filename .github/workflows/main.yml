@@ -5,14 +5,17 @@ on: push
 jobs:
   snyk:
     runs-on: terraform-scanning
+    env:
+     GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+     TF_WORKSPACE: main
     permissions:
       contents: write
       packages: write
     defaults:
       run: 
        working-directory: ./
-    env:
-     TF_WORKSPACE: main
+
+    
 
     steps:
       - uses: actions/checkout@v2
