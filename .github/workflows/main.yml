@@ -4,7 +4,7 @@ name: Snyk Infrastructure as Code
 on: push
 jobs:
   snyk:
-    runs-on: ubuntu-latest
+    runs-on: terraform-scanning
     steps:
       - uses: actions/checkout@v2
       - name: Run Snyk to check configuration files for security issues
