@@ -8,9 +8,7 @@ jobs:
     env:
      GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
      TF_WORKSPACE: main
-    permissions:
-      contents: write
-      packages: write
+    permissions: write-all
     defaults:
       run: 
        working-directory: ./
@@ -30,6 +28,6 @@ jobs:
           sarif: false
       - name: Upload result to GitHub Code Scanning
         if: always()
-        uses: github/codeql-action/upload-sarif@v1
+        uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: terraform.snyk.scan
