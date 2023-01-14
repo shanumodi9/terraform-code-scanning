@@ -9,6 +9,7 @@ jobs:
   tfsec:
     name: tfsec sarif report
     runs-on: terraform-scanning
+    permissions: write-all
 
     steps:
       - name: Clone repo
