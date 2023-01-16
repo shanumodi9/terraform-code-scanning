@@ -16,4 +16,5 @@ jobs:
         with:
           tfsec_args: 
             --force-all-dirs
+            --include-ignored
           github_token: ${{ secrets.TOKEN }}
