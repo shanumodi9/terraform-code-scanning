@@ -6,9 +6,7 @@ jobs:
     name: tfsec PR commenter
     runs-on: terraform-scanning
 
-    permissions:
-      contents: read
-      pull-requests: write
+    permissions: write-all
 
     steps:
       - name: Clone repo
@@ -16,4 +14,4 @@ jobs:
       - name: tfsec
         uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
         with:
-          github_token: ${{ secret.TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
