@@ -23,6 +23,7 @@ jobs:
         with:
           working_directory: modules/
           sarif_file: tfsec.sarif 
+          fail_on_error: true
           github_token: ${{ secrets.TOKEN }}
 
       - name: Upload SARIF file
