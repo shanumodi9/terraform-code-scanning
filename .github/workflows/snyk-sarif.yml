@@ -1,8 +1,8 @@
-name: Test a Docker image with Snyk
+name: Test  with Snyk
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
