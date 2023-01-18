@@ -1,17 +1,19 @@
 # The Infrastructure as Code Action also supports integrating with GitHub Code Scanning and can show issues in the
 # GitHub Security tab. When run, a snyk.sarif file will be generated which can be uploaded to GitHub Code Scanning.
 name: Snyk Infrastructure as Code
-on: push
+
+on:
+  push:
+    branches: [ main ]
 jobs:
   snyk:
     runs-on: terraform-scanning
     env:
      GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-     TF_WORKSPACE: main
+     
     permissions: 
      security-events: write
-     actions: read
-     contents: read
+     
     steps:
       - uses: actions/checkout@v2
       
@@ -27,7 +29,7 @@ jobs:
           
       - name: Upload result to GitHub Code Scanning
         if: always()
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: result.sarif
           category: my-analysis-tool
