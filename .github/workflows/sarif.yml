@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: run report
-        uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
+        uses: aquasecurity/tfsec-action@v1.0.0
         with:
           working_directory: modules/
           sarif_file: tfsec.sarif 
