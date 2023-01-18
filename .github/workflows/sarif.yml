@@ -23,8 +23,7 @@ jobs:
         with:
           working_directory: modules/
           sarif_file: tfsec.sarif 
-          tfsec_args: --force-all-dirs
-          --soft_fail: true
+          tfsec_args: --force-all-dirs --soft-fail --detailed-exit-code
           github_token: ${{ secrets.TOKEN }}
 
       - name: Upload SARIF file
